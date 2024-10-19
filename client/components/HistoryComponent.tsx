@@ -1,56 +1,47 @@
-import { prisma } from "@/lib/db";
-import { Clock, CopyCheck, Edit2 } from "lucide-react";
-import Link from "next/link";
+
+// HotTopicsCard.tsx
 import React from "react";
-import MCQCounter from "./MCQCounter";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import WordCloud from "@/components/WordCloud";
 
-type Props = {
-  limit: number;
-  userId: string;
-};
+const ML_TOPICS = [
+  { text: "Neural Networks", value: 100 },
+  { text: "Deep Learning", value: 85 },
+  { text: "Machine Learning", value: 80 },
+  { text: "Computer Vision", value: 75 },
+  { text: "Natural Language Processing", value: 70 },
+  { text: "Reinforcement Learning", value: 65 },
+  { text: "Data Preprocessing", value: 60 },
+  { text: "Model Evaluation", value: 55 },
+  { text: "Feature Engineering", value: 50 },
+  { text: "Transfer Learning", value: 45 },
+  { text: "CNN", value: 40 },
+  { text: "RNN", value: 35 },
+  { text: "LSTM", value: 30 },
+  { text: "Transformers", value: 25 },
+  { text: "GANs", value: 20 }
+];
 
-const HistoryComponent = async ({ limit, userId }: Props) => {
-  const games = await prisma.game.findMany({
-    take: limit,
-    where: {
-      userId,
-    },
-    orderBy: {
-      timeStarted: "desc",
-    },
-  });
+const HotTopicsCard = () => {
   return (
-    <div className="space-y-8">
-      {games.map((game) => {
-        return (
-          <div className="flex items-center justify-between" key={game.id}>
-            <div className="flex items-center">
-              {game.gameType === "mcq" ? (
-                <CopyCheck className="mr-3" />
-              ) : (
-                <Edit2 className="mr-3" />
-              )}
-              <div className="ml-4 space-y-1">
-                <Link
-                  className="text-base font-medium leading-none underline"
-                  href={`/statistics/${game.id}`}
-                >
-                  {game.topic}
-                </Link>
-                <p className="flex items-center px-2 py-1 text-xs text-white rounded-lg w-fit bg-slate-800">
-                  <Clock className="w-4 h-4 mr-1" />
-                  {new Date(game.timeEnded ?? 0).toLocaleDateString()}
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  {game.gameType === "mcq" ? "Multiple Choice" : "Open-Ended"}
-                </p>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
+    <Card className="col-span-4">
+      <CardHeader>
+        <CardTitle className="text-2xl font-bold">Hot Topics</CardTitle>
+        <CardDescription>
+          Click on a topic to start a quiz on it.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="pl-2">
+        <WordCloud formattedTopics={ML_TOPICS} />
+      </CardContent>
+    </Card>
   );
 };
 
-export default HistoryComponent;
+export default HotTopicsCard;

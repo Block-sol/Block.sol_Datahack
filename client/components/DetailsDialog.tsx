@@ -57,15 +57,7 @@ const DetailsDialog = (props: Props) => {
             <p className="my-2 font-semibold">
               <h4 className="text-base font-semibold">Built with</h4>
               <div className="grid justify-around grid-cols-4 mt-2 gap-y-3">
-                <div className="flex items-center gap-2">
-                  <Image
-                    alt="planetscale"
-                    src="/planetscale.png"
-                    width={35}
-                    height={35}
-                  />
-                  <span className="">Planet Scale</span>
-                </div>
+
                 <div className="flex items-center gap-2">
                   <Image
                     alt="nextjs"
@@ -105,22 +97,14 @@ const DetailsDialog = (props: Props) => {
 
                 <div className="flex items-center gap-2">
                   <Image
-                    alt="react query"
-                    src="/react-query.png"
-                    width={30}
-                    height={30}
+                    alt="firebase"
+                    src="/firebase.webp"
+                    width={40}
+                    height={40}
                   />
-                  <span className="">React Query</span>
+                  <span className="">FireBase</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Image
-                    alt="primsa"
-                    src="/prisma.png"
-                    width={30}
-                    height={30}
-                  />
-                  <span className="">Prisma</span>
-                </div>
+
                 <div className="flex items-center gap-2">
                   <Image
                     alt="typescript"
