@@ -1,0 +1,313 @@
+{
+    "questions": [
+      {
+        "difficulty": "Easy",
+        "question": "Which of the following is an example of supervised learning?",
+        "options": {
+          "A": "K-Means Clustering",
+          "B": "Decision Tree",
+          "C": "PCA",
+          "D": "DBSCAN"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Easy",
+        "question": "What is overfitting in machine learning?",
+        "options": {
+          "A": "When the model performs well on training data but poorly on test data",
+          "B": "When the model performs well on both training and test data",
+          "C": "When the model performs poorly on both training and test data",
+          "D": "When the model performs poorly on training data but well on test data"
+        },
+        "correctAnswer": "A"
+      },
+      {
+        "difficulty": "Easy",
+        "question": "Which algorithm is used for classification?",
+        "options": {
+          "A": "Linear Regression",
+          "B": "Logistic Regression",
+          "C": "K-Means",
+          "D": "PCA"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Easy",
+        "question": "Which type of machine learning involves labeled data?",
+        "options": {
+          "A": "Reinforcement Learning",
+          "B": "Unsupervised Learning",
+          "C": "Supervised Learning",
+          "D": "Self-Supervised Learning"
+        },
+        "correctAnswer": "C"
+      },
+      {
+        "difficulty": "Easy",
+        "question": "Which evaluation metric is commonly used for classification tasks?",
+        "options": {
+          "A": "Mean Squared Error",
+          "B": "Accuracy",
+          "C": "R-Squared",
+          "D": "Silhouette Score"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Easy",
+        "question": "Which of the following is a machine learning library?",
+        "options": {
+          "A": "NumPy",
+          "B": "TensorFlow",
+          "C": "Matplotlib",
+          "D": "Jupyter"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Easy",
+        "question": "Which of the following is NOT an unsupervised learning algorithm?",
+        "options": {
+          "A": "K-Means",
+          "B": "Hierarchical Clustering",
+          "C": "Linear Regression",
+          "D": "DBSCAN"
+        },
+        "correctAnswer": "C"
+      },
+      {
+        "difficulty": "Easy",
+        "question": "Which method can be used to handle missing data?",
+        "options": {
+          "A": "Drop the missing data",
+          "B": "Fill with zeros",
+          "C": "Fill with the mean",
+          "D": "All of the above"
+        },
+        "correctAnswer": "D"
+      },
+      {
+        "difficulty": "Easy",
+        "question": "What is the output of a classification algorithm?",
+        "options": {
+          "A": "A continuous value",
+          "B": "A category or class",
+          "C": "A cluster of points",
+          "D": "A decision boundary"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Easy",
+        "question": "Which of the following is a continuous probability distribution?",
+        "options": {
+          "A": "Bernoulli Distribution",
+          "B": "Poisson Distribution",
+          "C": "Gaussian Distribution",
+          "D": "Multinomial Distribution"
+        },
+        "correctAnswer": "C"
+      },
+      {
+        "difficulty": "Medium",
+        "question": "What is the purpose of regularization in machine learning?",
+        "options": {
+          "A": "To reduce bias",
+          "B": "To prevent overfitting",
+          "C": "To increase variance",
+          "D": "To improve accuracy"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Medium",
+        "question": "Which of the following is a common technique to reduce overfitting?",
+        "options": {
+          "A": "Increase the learning rate",
+          "B": "Add dropout layers",
+          "C": "Use larger batch sizes",
+          "D": "Reduce the number of layers"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Medium",
+        "question": "What does 'gradient descent' do in machine learning?",
+        "options": {
+          "A": "Finds the maximum of a function",
+          "B": "Finds the minimum of a function",
+          "C": "Finds the median of a dataset",
+          "D": "Finds the mean of a dataset"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Medium",
+        "question": "Which of the following is an ensemble learning technique?",
+        "options": {
+          "A": "Decision Tree",
+          "B": "Random Forest",
+          "C": "Support Vector Machine",
+          "D": "Logistic Regression"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Medium",
+        "question": "Which of the following is true about support vector machines (SVM)?",
+        "options": {
+          "A": "They are used only for regression tasks",
+          "B": "They maximize the margin between classes",
+          "C": "They are sensitive to outliers",
+          "D": "They cannot handle nonlinear data"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Medium",
+        "question": "What is the purpose of cross-validation?",
+        "options": {
+          "A": "To reduce overfitting",
+          "B": "To tune hyperparameters",
+          "C": "To estimate model performance",
+          "D": "All of the above"
+        },
+        "correctAnswer": "D"
+      },
+      {
+        "difficulty": "Medium",
+        "question": "What is a confusion matrix used for?",
+        "options": {
+          "A": "Evaluating a regression model",
+          "B": "Calculating loss",
+          "C": "Evaluating a classification model",
+          "D": "Visualizing decision boundaries"
+        },
+        "correctAnswer": "C"
+      },
+      {
+        "difficulty": "Medium",
+        "question": "Which method is used to optimize hyperparameters?",
+        "options": {
+          "A": "Backpropagation",
+          "B": "Gradient Descent",
+          "C": "Grid Search",
+          "D": "Cross-Entropy"
+        },
+        "correctAnswer": "C"
+      },
+      {
+        "difficulty": "Medium",
+        "question": "Which of the following can be used to measure the performance of a regression model?",
+        "options": {
+          "A": "Accuracy",
+          "B": "Precision",
+          "C": "Mean Squared Error",
+          "D": "F1 Score"
+        },
+        "correctAnswer": "C"
+      },
+      {
+        "difficulty": "Medium",
+        "question": "Which of the following is used for unsupervised learning?",
+        "options": {
+          "A": "K-Nearest Neighbors",
+          "B": "K-Means Clustering",
+          "C": "Naive Bayes",
+          "D": "Gradient Boosting"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Hard",
+        "question": "Which type of neural network is typically used for image classification?",
+        "options": {
+          "A": "Recurrent Neural Networks (RNN)",
+          "B": "Convolutional Neural Networks (CNN)",
+          "C": "Feedforward Neural Networks",
+          "D": "Generative Adversarial Networks (GAN)"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Hard",
+        "question": "What is the vanishing gradient problem?",
+        "options": {
+          "A": "When gradients become too large and lead to exploding gradients",
+          "B": "When the gradients of the loss function become too small for effective learning",
+          "C": "When the model cannot find the global minimum",
+          "D": "When the model overfits on training data"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Hard",
+        "question": "Which of the following is a dimensionality reduction technique?",
+        "options": {
+          "A": "PCA",
+          "B": "Random Forest",
+          "C": "Gradient Boosting",
+          "D": "SVM"
+        },
+        "correctAnswer": "A"
+      },
+      {
+        "difficulty": "Hard",
+        "question": "What is the curse of dimensionality?",
+        "options": {
+          "A": "The difficulty in training models with high-dimensional data",
+          "B": "The difficulty in training models with low-dimensional data",
+          "C": "The difficulty in choosing hyperparameters",
+          "D": "The difficulty in defining loss functions"
+        },
+        "correctAnswer": "A"
+      },
+      {
+        "difficulty": "Hard",
+        "question": "What is the main difference between bagging and boosting?",
+        "options": {
+          "A": "Bagging is sequential while boosting is parallel",
+          "B": "Bagging reduces variance while boosting reduces bias",
+          "C": "Boosting uses weak learners and bagging uses strong learners",
+          "D": "Bagging increases bias and boosting reduces variance"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "difficulty": "Hard",
+        "question": "What does a ReLU activation function do?",
+        "options": {
+          "A": "Transforms negative values into zero and leaves positive values unchanged",
+          "B": "Transforms positive values into zero and leaves negative values unchanged",
+          "C": "Applies a non-linear transformation to all input values",
+          "D": "Outputs the logarithm of the input"
+        },
+        "correctAnswer": "A"
+      },
+      {
+        "difficulty": "Hard",
+        "question": "Which of the following is NOT a commonly used optimization algorithm?",
+        "options": {
+          "A": "Adam",
+          "B": "RMSprop",
+          "C": "Gradient Clipping",
+          "D": "SGD"
+        },
+        "correctAnswer": "C"
+      },
+      {
+        "difficulty": "Hard",
+        "question": "Which of the following can be used for reinforcement learning?",
+        "options": {
+          "A": "Q-Learning",
+          "B": "Random Forest",
+          "C": "SVM",
+          "D": "LSTM"
+        },
+        "correctAnswer": "A"
+      }
+    ]
+  }
+  
