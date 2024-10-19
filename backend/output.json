@@ -1,0 +1,420 @@
+[
+    {
+        "difficulty": "Easy",
+        "question": "What does NLP stand for?",
+        "options": {
+            "A": "Natural Language Processing",
+            "B": "Neural Language Processing",
+            "C": "Natural Logic Processing",
+            "D": "Numeric Language Processing"
+        },
+        "related_topics": [
+            "NLP Basics",
+            "Linguistics"
+        ],
+        "related_links": [
+            "https://en.wikipedia.org",
+            "https://pixabay.com"
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "difficulty": "Easy",
+        "question": "Which of the following is NOT a level of spoken language analysis?",
+        "options": {
+            "A": "Phonetics",
+            "B": "Syntax",
+            "C": "Contextual Analysis",
+            "D": "Semantics"
+        },
+        "related_topics": [
+            "Linguistics",
+            "Language Analysis"
+        ],
+        "related_links": [
+            "https://en.wikipedia.org",
+            "https://pixabay.com"
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "difficulty": "Easy",
+        "question": "What is one of the main applications of computational argumentation?",
+        "options": {
+            "A": "Data Mining",
+            "B": "Speech Recognition",
+            "C": "Argument Generation",
+            "D": "Sentiment Analysis"
+        },
+        "related_topics": [
+            "Argumentation",
+            "NLP"
+        ],
+        "related_links": [
+            "https://www.aclweb.org",
+            "https://pixabay.com"
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "difficulty": "Easy",
+        "question": "Which algorithm won the game show Jeopardy in February 2011?",
+        "options": {
+            "A": "Siri",
+            "B": "IBM's Watson",
+            "C": "Google Assistant",
+            "D": "Microsoft Skype"
+        },
+        "related_topics": [
+            "AI Achievements",
+            "Machine Learning"
+        ],
+        "related_links": [
+            "https://www.youtube.com/watch?v=P18EdAKuC1U",
+            "https://pixabay.com"
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "difficulty": "Medium",
+        "question": "What is overfitting in machine learning?",
+        "options": {
+            "A": "When the model performs well on training data but poorly on test data",
+            "B": "When the model performs well on both training and test data",
+            "C": "When the model performs poorly on both training and test data",
+            "D": "When the model performs poorly on training data but well on test data"
+        },
+        "related_topics": [
+            "Machine Learning",
+            "Model Evaluation"
+        ],
+        "related_links": [
+            "https://www.coursera.org/learn/machine-learning",
+            "https://pixabay.com"
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "difficulty": "Medium",
+        "question": "What does POS stand for in the context of NLP?",
+        "options": {
+            "A": "Part-of-Speech",
+            "B": "Point of Sales",
+            "C": "Positioning",
+            "D": "Printing Output System"
+        },
+        "related_topics": [
+            "NLP Basics",
+            "Syntax"
+        ],
+        "related_links": [
+            "https://pixabay.com",
+            "https://en.wikipedia.org"
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "difficulty": "Medium",
+        "question": "Which is a method for evaluating the effectiveness of NLP algorithms?",
+        "options": {
+            "A": "Run-time",
+            "B": "Cross-validation",
+            "C": "Feedback Loops",
+            "D": "Observation Draws"
+        },
+        "related_topics": [
+            "Model Evaluation",
+            "NLP"
+        ],
+        "related_links": [
+            "https://pixabay.com",
+            "https://www.aclweb.org"
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "difficulty": "Medium",
+        "question": "Which statement describes 'tokenization'?",
+        "options": {
+            "A": "Combining multiple tokens into a single text unit",
+            "B": "Breaking text into smaller units, such as words or phrases",
+            "C": "Analyzing the semantics of a phrase",
+            "D": "Detecting language syntax errors"
+        },
+        "related_topics": [
+            "NLP Techniques",
+            "Text Analysis"
+        ],
+        "related_links": [
+            "https://pixabay.com",
+            "https://en.wikipedia.org"
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "difficulty": "Hard",
+        "question": "What is the main purpose of using regular expressions in NLP?",
+        "options": {
+            "A": "To calculate the probability of words",
+            "B": "To analyze sentence structure",
+            "C": "To match text spans that follow specific sequential patterns",
+            "D": "To categorize text into predefined classes"
+        },
+        "related_topics": [
+            "NLP Techniques",
+            "Text Processing"
+        ],
+        "related_links": [
+            "https://en.wikipedia.org",
+            "https://pixabay.com"
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "difficulty": "Hard",
+        "question": "What is 'semantic relation' in the context of NLP?",
+        "options": {
+            "A": "The meanings of single words",
+            "B": "The associations between entities in text",
+            "C": "The grammatical correctness of sentences",
+            "D": "The frequency of words in a dataset"
+        },
+        "related_topics": [
+            "Semantics",
+            "Entity Recognition"
+        ],
+        "related_links": [
+            "https://www.aclweb.org",
+            "https://pixabay.com"
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "difficulty": "Hard",
+        "question": "Which of the following is NOT a type of ambiguity found in NLP?",
+        "options": {
+            "A": "Phonetic",
+            "B": "Lexical",
+            "C": "Syntactic",
+            "D": "Semantic Dependency"
+        },
+        "related_topics": [
+            "NLP Challenges",
+            "Linguistics"
+        ],
+        "related_links": [
+            "https://pixabay.com",
+            "https://en.wikipedia.org"
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "difficulty": "Hard",
+        "question": "What is the significance of the F1-score in NLP evaluations?",
+        "options": {
+            "A": "Measures the precision of a model",
+            "B": "Combines precision and recall into a single metric",
+            "C": "Indicates the runtime of the model",
+            "D": "Evaluates the efficiency of memory usage"
+        },
+        "related_topics": [
+            "Model Evaluation",
+            "Metrics in ML"
+        ],
+        "related_links": [
+            "https://pixabay.com",
+            "https://www.aclweb.org"
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "difficulty": "Hard",
+        "question": "What is the goal of 'information extraction' in NLP?",
+        "options": {
+            "A": "To organize texts into distinct categories",
+            "B": "To structure information drawn from text",
+            "C": "To enhance the readability of text",
+            "D": "To translate text into another language"
+        },
+        "related_topics": [
+            "NLP Applications",
+            "Data Processing"
+        ],
+        "related_links": [
+            "https://www.aclweb.org",
+            "https://pixabay.com"
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "difficulty": "Easy",
+        "question": "In which year did IBM Debater compete in classical debates?",
+        "options": {
+            "A": "2014",
+            "B": "2016",
+            "C": "2017",
+            "D": "2018"
+        },
+        "related_topics": [
+            "AI Milestones",
+            "Machine Learning"
+        ],
+        "related_links": [
+            "https://www.youtube.com/watch?v=UeF_N1r91RQ",
+            "https://pixabay.com"
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "difficulty": "Easy",
+        "question": "What is the smallest unit of language that can stand alone?",
+        "options": {
+            "A": "Lemma",
+            "B": "Morpheme",
+            "C": "Word",
+            "D": "Phrase"
+        },
+        "related_topics": [
+            "Morphology",
+            "Linguistics"
+        ],
+        "related_links": [
+            "https://pixabay.com",
+            "https://en.wikipedia.org"
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "difficulty": "Easy",
+        "question": "Which of the following describes a 'lemma'?",
+        "options": {
+            "A": "A fully inflected word",
+            "B": "The base form of a word",
+            "C": "A group of words with meaning",
+            "D": "A collection of sounds"
+        },
+        "related_topics": [
+            "Morphology",
+            "Linguistics"
+        ],
+        "related_links": [
+            "https://pixabay.com",
+            "https://en.wikipedia.org"
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "difficulty": "Easy",
+        "question": "What is meant by 'morphology' in language processing?",
+        "options": {
+            "A": "The study of meaning",
+            "B": "The study of sound systems",
+            "C": "The analysis of word structures",
+            "D": "The analysis of written texts"
+        },
+        "related_topics": [
+            "Linguistics",
+            "NLP Basics"
+        ],
+        "related_links": [
+            "https://pixabay.com",
+            "https://en.wikipedia.org"
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "difficulty": "Medium",
+        "question": "What is a 'clause' in the context of NLP?",
+        "options": {
+            "A": "The smallest unit of spoken language",
+            "B": "A complete grammatical unit",
+            "C": "A collection of phrases",
+            "D": "An unchangeable rule in the text"
+        },
+        "related_topics": [
+            "Syntax",
+            "Grammatical Structures"
+        ],
+        "related_links": [
+            "https://en.wikipedia.org",
+            "https://pixabay.com"
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "difficulty": "Medium",
+        "question": "What does 'cross-validation' achieve in machine learning?",
+        "options": {
+            "A": "Improves algorithm performance",
+            "B": "Reduces data bias",
+            "C": "Allows for error measurement by training and testing",
+            "D": "Enhances data collecting methods"
+        },
+        "related_topics": [
+            "Model Evaluation",
+            "Machine Learning"
+        ],
+        "related_links": [
+            "https://pixabay.com",
+            "https://www.aclweb.org"
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "difficulty": "Medium",
+        "question": "In NLP, what does the term 'entity' refer to?",
+        "options": {
+            "A": "A concept",
+            "B": "A specific object in the real world",
+            "C": "A word in isolation",
+            "D": "A grammatical structure"
+        },
+        "related_topics": [
+            "Entity Recognition",
+            "NLP"
+        ],
+        "related_links": [
+            "https://www.aclweb.org",
+            "https://pixabay.com"
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "difficulty": "Hard",
+        "question": "What is 'domain dependency' in NLP?",
+        "options": {
+            "A": "Algorithms that work consistently across multiple domains",
+            "B": "Variability in algorithm performance based on the training domain",
+            "C": "A property that defines computational linguistics",
+            "D": "The ability of models to function in abstract scenarios"
+        },
+        "related_topics": [
+            "NLP Challenges",
+            "Machine Learning"
+        ],
+        "related_links": [
+            "https://en.wikipedia.org",
+            "https://www.aclweb.org"
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "difficulty": "Hard",
+        "question": "What technique is used to avoid overfitting in machine learning models?",
+        "options": {
+            "A": "Data augmentation",
+            "B": "Feature selection",
+            "C": "Regularization",
+            "D": "Cross-validation"
+        },
+        "related_topics": [
+            "Machine Learning",
+            "Model Optimization"
+        ],
+        "related_links": [
+            "https://www.coursera.org/learn/machine-learning",
+            "https://pixabay.com"
+        ],
+        "correctAnswer": "C"
+    }
+]

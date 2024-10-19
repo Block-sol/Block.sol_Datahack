@@ -1,11 +1,19 @@
 import asyncio
 from websocket_server import FlashcardWebSocketServer
+from questiongeneration import question_generation
 
-if __name__ == "__main__":
+async def main():
     host = "localhost"
     port = 8765
-    questions_file = "data/sample.json"
+    questions_file = "output.json"
 
-    server = FlashcardWebSocketServer(host, port, questions_file)
-    asyncio.get_event_loop().run_until_complete(server.start_server())
-    asyncio.get_event_loop().run_forever()
+    # Call the synchronous question_generation function
+    question_generation('nlp.pdf', 'output.json')
+
+    # Start WebSocket server after question_generation is complete
+    # server = FlashcardWebSocketServer(host, port, questions_file)
+    # await server.start_server()
+    # await asyncio.get_event_loop().run_forever()
+
+if __name__ == "__main__":
+    asyncio.run(main())
