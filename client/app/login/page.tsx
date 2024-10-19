@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { IconBrandGoogle } from "@tabler/icons-react";
 import { useAuth } from "@/context/AuthContext";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
 
@@ -22,8 +22,9 @@ function Login() {
     setError("");
     
     try {
+      await setPersistence(auth, browserLocalPersistence);
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/dashboard"); // Replace with your desired redirect path
+      router.push("/dashboard");
     } catch (error: any) {
       setError(error.message);
     }
@@ -31,12 +32,14 @@ function Login() {
 
   const handleGoogleSignIn = async () => {
     try {
+      await setPersistence(auth, browserLocalPersistence);
       await signInWithGoogle();
-      router.push("/dashboard"); // Replace with your desired redirect path
+      router.push("/dashboard");
     } catch (error: any) {
       setError(error.message);
     }
   };
+
 
   return (
     <div className="flex items-center justify-center h-screen">

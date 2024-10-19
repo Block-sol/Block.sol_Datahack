@@ -5,16 +5,16 @@ import QuizMeCard from "@/components/dashboard/QuizMeCard";
 import RecentActivityCard from "@/components/dashboard/RecentActivityCard";
 import { redirect } from "next/navigation";
 import React from "react";
-
-type Props = {};
+import { useAuth } from "@/context/AuthContext"; // Ensure this import is correct
 
 export const metadata = {
   title: "Dashboard | Quizzzy",
   description: "Quiz yourself on anything!",
 };
 
-const Dasboard = async (props: Props) => {
-  // const session = await getAuthSession();
+const Dashboard = async () => {
+  // Uncomment these lines if you want to implement authentication
+  // const session = await useAuth();
   // if (!session?.user) {
   //   redirect("/");
   // }
@@ -38,4 +38,4 @@ const Dasboard = async (props: Props) => {
   );
 };
 
-export default Dasboard;
+export default Dashboard;

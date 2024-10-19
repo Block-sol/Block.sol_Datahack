@@ -31,6 +31,12 @@ const flashcardCreationSchema = z.object({
   flashcardType: z.enum(["text", "image", "audio", "video"]),
   sourceType: z.enum(["text", "pdf", "ppt", "image", "document"]),
   amount: z.number().min(1).max(50),
+  file: z
+    .any()
+    .optional()
+    .refine((file) => !file || file.size <= 5 * 1024 * 1024, {
+      message: "File size must be less than 5MB",
+    }),
 });
 
 type FlashcardCreationInput = z.infer<typeof flashcardCreationSchema>;
@@ -38,7 +44,7 @@ type FlashcardCreationInput = z.infer<typeof flashcardCreationSchema>;
 const FlashcardCreation = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { toast } = useToast();
-
+  
   const form = useForm<FlashcardCreationInput>({
     resolver: zodResolver(flashcardCreationSchema),
     defaultValues: {
@@ -49,17 +55,7 @@ const FlashcardCreation = () => {
     },
   });
 
-//   const onSubmit = (data: FlashcardCreationInput) => {
-//     setIsLoading(true);
-//     // Simulate API call
-//     setTimeout(() => {
-//       setIsLoading(false);
-//       toast({
-//         title: "Success",
-//         description: "Flashcards created successfully!",
-//       });
-//     }, 2000);
-//   };
+  const sourceType = form.watch("sourceType");
 
   return (
     <motion.div
@@ -69,7 +65,9 @@ const FlashcardCreation = () => {
       className="p-4"
     >
       <h2 className="text-2xl font-bold mb-4">Create Flashcards</h2>
-      <p className="text-muted-foreground mb-6">Generate personalized flashcards</p>
+      <p className="text-muted-foreground mb-6">
+        Generate personalized flashcards
+      </p>
       <Form {...form}>
         <form className="space-y-6">
           <FormField
@@ -95,7 +93,10 @@ const FlashcardCreation = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Flashcard Type</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
                   <FormControl>
                     <SelectTrigger>
                       <SelectValue placeholder="Select flashcard type" />
@@ -122,14 +123,16 @@ const FlashcardCreation = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Source Type</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
                   <FormControl>
                     <SelectTrigger>
                       <SelectValue placeholder="Select source type" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="text">Text</SelectItem>
                     <SelectItem value="pdf">PDF</SelectItem>
                     <SelectItem value="ppt">PowerPoint</SelectItem>
                     <SelectItem value="image">Image</SelectItem>
@@ -144,34 +147,41 @@ const FlashcardCreation = () => {
             )}
           />
 
-          <FormField
-            control={form.control}
-            name="amount"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Number of Flashcards</FormLabel>
-                <FormControl>
-                  <Input
-                    type="number"
-                    {...field}
-                    onChange={(e) => field.onChange(parseInt(e.target.value))}
-                    min={1}
-                    max={50}
-                  />
-                </FormControl>
-                <FormDescription>
-                  Choose how many flashcards to generate (1-50)
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          {sourceType !== "text" && (
+            <FormField
+              control={form.control}
+              name="file"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Upload File</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="file"
+                      className="text-white"
+                      accept={
+                        sourceType === "pdf"
+                          ? "application/pdf"
+                          : sourceType === "ppt"
+                          ? "application/vnd.ms-powerpoint"
+                          : sourceType === "image"
+                          ? "image/*"
+                          : sourceType === "document"
+                          ? ".doc,.docx,.pdf"
+                          : undefined
+                      }
+                      onChange={(e) => {field.onChange(e.target.files?.[0]); console.log(e.target.files?.[0]);}}
+                    />
+                  </FormControl>
+                  <FormDescription>
+                    Upload a {sourceType.toUpperCase()} file
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
 
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={isLoading}
-          >
+          <Button className="w-full" disabled={isLoading}>
             {isLoading ? (
               <>
                 <Loader2 className="w-4 h-4 mr-2 animate-spin" />
