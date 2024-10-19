@@ -1,11 +1,13 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { BrainCircuit, History, ArrowRight, Users, BookOpen, Clock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import Link from 'next/link';
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import FlashcardCreation from '@/components/FlashcardCreation';
 
 const features = [
   { icon: BrainCircuit, title: 'Create Flashcards', description: 'Create Flashcards using AI with adaptive difficulty on any topic!', image: '/images/create-flashcards-bg.jpg', link:'/create-flashcards' },
@@ -34,6 +36,7 @@ const CardWithBlurredBackground = ({ children, imageSrc }:any) => (
 );
 
 export default function LandingPage() {
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState<boolean>(false);
   return (
     <ParallaxProvider>
       <motion.div 
@@ -151,35 +154,48 @@ export default function LandingPage() {
           </Parallax>
 
           <Parallax speed={-5}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-              <div className="grid gap-4 md:grid-cols-2">
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={feature.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1 + index * 0.2, duration: 0.5 }}
-                  >
-                    <Link href={feature.link}>
-                    <CardWithBlurredBackground imageSrc={feature.image}>
-                      <Card className="bg-transparent border-0 hover:shadow-lg transition-shadow duration-300">
-                        <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-                          <CardTitle className="text-2xl font-bold text-white">{feature.title}</CardTitle>
-                          <feature.icon size={28} strokeWidth={2.5} className="text-primary" />
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-sm text-white">
-                            {feature.description}
-                          </p>
-                        </CardContent>
-                      </Card>
-                    </CardWithBlurredBackground>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="grid gap-4 md:grid-cols-2">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1 + index * 0.2, duration: 0.5 }}
+                >
+                  <Dialog open={isCreateModalOpen} onOpenChange={setIsCreateModalOpen}>
+                    <DialogTrigger asChild>
+                      <div>
+                        <CardWithBlurredBackground 
+                          imageSrc={feature.image}
+                          onClick={() => feature.title === 'Create Flashcards' && setIsCreateModalOpen(true)}
+                        >
+                          <Card className="bg-transparent border-0 hover:shadow-lg transition-shadow duration-300">
+                            <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+                              <CardTitle className="text-2xl font-bold text-white">{feature.title}</CardTitle>
+                              <feature.icon size={28} strokeWidth={2.5} className="text-primary" />
+                            </CardHeader>
+                            <CardContent>
+                              <p className="text-sm text-white">
+                                {feature.description}
+                              </p>
+                            </CardContent>
+                          </Card>
+                        </CardWithBlurredBackground>
+                      </div>
+                    </DialogTrigger>
+                    {feature.title === 'Create Flashcards' && (
+                      <DialogContent className="sm:max-w-[425px]">
+                        <FlashcardCreation />
+                      </DialogContent>
+                    )}
+                  </Dialog>
+                </motion.div>
+              ))}
             </div>
-          </Parallax>
+          </div>
+        </Parallax>
+
 
           <Parallax speed={5}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

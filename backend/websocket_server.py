@@ -28,7 +28,9 @@ class FlashcardWebSocketServer:
                     "type": "answer_result",
                     "data": {
                         "is_correct": is_correct,
-                        "correct_answer": question["correctAnswer"]
+                        "correct_answer": question["correctAnswer"],
+                        "question": question["question"],
+                        "explanation": question.get("explanation", "No explanation provided.")
                     }
                 }))
 
