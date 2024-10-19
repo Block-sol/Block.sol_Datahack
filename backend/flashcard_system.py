@@ -9,6 +9,7 @@ class AdaptiveFlashcardSystem:
         self.question_history = []
         self.current_difficulty = "Easy"
         self.spaced_repetition_queue = []
+        self.wrong_answers = []  # New list to track wrong answers
 
     def load_questions(self, file_path):
         with open(file_path, 'r') as file:
@@ -45,6 +46,19 @@ class AdaptiveFlashcardSystem:
     def process_answer(self, question, user_answer, time_taken):
         is_correct = user_answer.upper() == question['correctAnswer']
         self.update_performance(question, is_correct, time_taken)
+        
+        # Track wrong answers with details
+        if not is_correct:
+            wrong_answer_detail = {
+                'question': question['question'],
+                'user_answer': user_answer,
+                'correct_answer': question['correctAnswer'],
+                'options': question['options'],
+                'difficulty': question['difficulty'],
+                'time_taken': time_taken
+            }
+            self.wrong_answers.append(wrong_answer_detail)
+            
         return is_correct
 
     def update_performance(self, question, is_correct, time_taken):
@@ -82,10 +96,13 @@ class AdaptiveFlashcardSystem:
 
         report = {
             "total_questions": total_questions,
+            "total_correct": total_correct,
+            "total_wrong": len(self.wrong_answers),
             "overall_accuracy": overall_accuracy,
             "average_time": average_time,
             "difficulty_performance": {},
-            "challenging_questions": []
+            "challenging_questions": [],
+            "wrong_answers": self.wrong_answers  # Adding wrong answers to report
         }
 
         for difficulty in ["Easy", "Medium", "Hard"]:
@@ -95,17 +112,24 @@ class AdaptiveFlashcardSystem:
                 avg_time = sum(q['time_taken'] for q in questions) / len(questions)
                 report["difficulty_performance"][difficulty] = {
                     "accuracy": accuracy,
-                    "average_time": avg_time
+                    "average_time": avg_time,
+                    "total_questions": len(questions)
                 }
 
-        sorted_performance = sorted(self.user_performance.items(), key=lambda x: x[1]['correct'] / x[1]['attempts'])
+        # Get the most challenging questions
+        sorted_performance = sorted(
+            self.user_performance.items(),
+            key=lambda x: (x[1]['correct'] / x[1]['attempts'], x[1]['total_time'] / x[1]['attempts'])
+        )
+        
         for q_id, perf in sorted_performance[:3]:
             accuracy = perf['correct'] / perf['attempts']
             avg_time = perf['total_time'] / perf['attempts']
             report["challenging_questions"].append({
                 "question": q_id,
                 "accuracy": accuracy,
-                "average_time": avg_time
+                "average_time": avg_time,
+                "attempts": perf['attempts']
             })
 
         return report
