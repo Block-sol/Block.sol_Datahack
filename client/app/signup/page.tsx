@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { IconBrandGoogle } from "@tabler/icons-react";
 import { useAuth } from "@/context/AuthContext";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile, setPersistence, browserLocalPersistence } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -31,9 +31,9 @@ function SignUp() {
         throw new Error("Please fill in all fields");
       }
 
+      await setPersistence(auth, browserLocalPersistence);
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       
-      // Update the user's profile with their name
       await updateProfile(userCredential.user, {
         displayName: `${firstName} ${lastName}`
       });

@@ -52,10 +52,10 @@ export default function LandingPage() {
                 <span className="text-2xl font-bold">Clever🧠Deck</span>
               </div>
               <div className="flex items-center space-x-4">
-                <a href="#" className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
+                <a href="/login" className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
                   Sign In
                 </a>
-                <a href="#" className="px-4 py-2 rounded-md text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90">
+                <a href="/signup" className="px-4 py-2 rounded-md text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90">
                   Get Started
                 </a>
               </div>
@@ -112,7 +112,7 @@ export default function LandingPage() {
                     whileTap={{ scale: 0.95 }}
                     className="inline-flex items-center justify-center rounded-full bg-white border border-transparent bg-primary py-2 px"
                   >
-                    <a href="#" className="w-full flex items-center justify-center px-8 py-3 rounded-md text-primary-foreground text-black bg-primary hover:bg-primary/90 text-base font-medium md:py-4 md:text-lg md:px-10">
+                    <a href="/signup" className="w-full flex items-center justify-center px-8 py-3 rounded-md text-primary-foreground text-black bg-primary hover:bg-primary/90 text-base font-medium md:py-4 md:text-lg md:px-10">
                       Get started
                       <ArrowRight className="ml-2" size={20} />
                     </a>
