@@ -60,7 +60,8 @@ class AdaptiveFlashcardSystem:
                 'correct_answer': question['correctAnswer'],
                 'options': question['options'],
                 'difficulty': question['difficulty'],
-                'time_taken': time_taken
+                'time_taken': time_taken,
+                'explanation':question['explanation']
             }
             self.wrong_answers.append(wrong_answer_detail)
             
@@ -141,7 +142,8 @@ class AdaptiveFlashcardSystem:
                 "user_attempts": attempts,
                 "correct_attempts": correct,
                 "accuracy": accuracy,
-                "average_time_taken": avg_time
+                "average_time_taken": avg_time,
+                "explanation":question['explanation']
             })
     
         # Calculate performance based on difficulty
@@ -175,6 +177,7 @@ class AdaptiveFlashcardSystem:
                 "related_topics": question['related_topics'],
                 "related_links": question['related_links'],
                 "difficulty": question['difficulty'],
+                "explanation":question['explanation'],
                 "accuracy": accuracy,
                 "average_time": avg_time,
                 "attempts": perf['attempts']

@@ -50,7 +50,8 @@ Example structure (repeat this 20 times):
         }},
         "related_topics" : ['topic1','topic2','topic3'],
         "related_links" : ['youtube_link','research_paper_link','youtube_link'],
-        "correctAnswer": "A"
+        "correctAnswer": "A",
+        "explanation":"explanation in one line"
       }}
 
 Generate questions based on this text:
