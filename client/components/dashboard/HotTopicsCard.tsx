@@ -1,37 +1,29 @@
+"use client";
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import WordCloud from "../WordCloud";
-import { prisma } from "@/lib/db";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useRouter } from "next/navigation";
+import { History } from "lucide-react";
 
-type Props = {};
-
-const HotTopicsCard = async (props: Props) => {
-  const topics = await prisma.topic_count.findMany({});
-  const formattedTopics = topics.map((topic) => {
-    return {
-      text: topic.topic,
-      value: topic.count,
-    };
-  });
+const HistoryCard = () => {
+  const router = useRouter();
   return (
-    <Card className="col-span-4">
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold">Hot Topics</CardTitle>
-        <CardDescription>
-          Click on a topic to start a quiz on it.
-        </CardDescription>
+    <Card
+      className="hover:cursor-pointer hover:opacity-75"
+      onClick={() => {
+        router.push("/history");
+      }}
+    >
+      <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+        <CardTitle className="text-2xl font-bold">History</CardTitle>
+        <History size={28} strokeWidth={2.5} />
       </CardHeader>
-      <CardContent className="pl-2">
-        <WordCloud formattedTopics={formattedTopics} />
+      <CardContent>
+        <p className="text-sm text-muted-foreground">
+          View past quiz attempts.
+        </p>
       </CardContent>
     </Card>
   );
 };
 
-export default HotTopicsCard;
+export default HistoryCard;

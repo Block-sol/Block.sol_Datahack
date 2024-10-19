@@ -15,6 +15,7 @@ async def flashcard_client():
             while True:
                 message = await websocket.recv()
                 data = json.loads(message)
+                # print(data)
                 
                 if data['type'] == 'question':
                     question = data['data']
