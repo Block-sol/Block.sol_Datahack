@@ -1,4 +1,3 @@
-
 import asyncio
 import websockets
 import json
@@ -6,17 +5,16 @@ import time
 from datetime import datetime
 
 async def flashcard_client():
-    uri = "ws://localhost:8765"
+    uri = "ws://localhost:8765"  # Ensure this matches the running WebSocket server
     async with websockets.connect(uri) as websocket:
         print("Connection opened")
         session_start = datetime.now()
         
         try:
             while True:
-                message = await websocket.recv()
+                message = await websocket.recv()  # Receive message from the server
                 data = json.loads(message)
-                # print(data)
-                
+                print(data)
                 if data['type'] == 'question':
                     question = data['data']
                     print(f"\nQuestion (Difficulty: {question['difficulty']}): {question['question']}")
@@ -41,7 +39,7 @@ async def flashcard_client():
                         "answer": user_answer,
                         "time_taken": time_taken
                     }
-                    await websocket.send(json.dumps(response))
+                    await websocket.send(json.dumps(response))  # Send the response back to the server
 
                 elif data['type'] == 'answer_result':
                     result = data['data']

@@ -39,6 +39,7 @@ Do not include any text before or after the JSON array.
 
 Example structure (repeat this 20 times):
       {{
+        "id":1,
         "difficulty": "Easy",
         "question": "What is overfitting in machine learning?",
         "options": {{
@@ -104,11 +105,11 @@ def extract_and_save_json(input_string, file_name):
     except json.JSONDecodeError as e:
         print(f"Error decoding JSON: {e}")
 
-def question_generation(file_path,file_name):
+def question_generation(text_content):
     try:
-        text_content = extract_text_from_pdf(file_path)
+        # text_content = extract_text_from_pdf(file_path)
         questions = generate_questions(text_content, 30)
-        extract_and_save_json(questions,file_name)
+        extract_and_save_json(questions,'output.json')
         # save_questions(user_id, quiz_name, questions)
         # print('Questions successfully saved to Firestore')
     except Exception as e:
