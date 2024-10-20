@@ -7,13 +7,14 @@ export type FlashCardData = {
   options: string[];
   answerImage: string;
   explanation: string;
-  correctOption: number;
-  topics: string[];
+  correctAnswer: string;
+  related_topics: string[];
 };
 
 export type CardProps = {
   data: FlashCardData;
   active: boolean;
+  websocket: WebSocket | null;
   removeCard: (id: number, action: 'right' | 'left') => void;
 };
 
