@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import CORS
 import openai
 import os
 from werkzeug.utils import secure_filename
@@ -8,6 +9,7 @@ from questiongeneration import question_generation
 from youtubevideo import fetch_top_youtube_embed_link_combined
 
 app = Flask(__name__)
+CORS(app)
 
 
 UPLOAD_FOLDER = 'uploads/'
