@@ -7,9 +7,13 @@ class FlashcardWebSocketServer:
     def __init__(self, host, port, questions_file):
         self.host = host
         self.port = port
+        self.questions_file = questions_file
         self.flashcard_system = AdaptiveFlashcardSystem(questions_file)
 
     async def handle_client(self, websocket, path):
+        # Reload the latest questions each time a client connects
+        self.flashcard_system.questions = self.flashcard_system.load_questions()
+
         try:
             for _ in range(15):  # Adjust the number of questions as needed
                 question = self.flashcard_system.select_question()

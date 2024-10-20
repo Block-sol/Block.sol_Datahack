@@ -10,6 +10,7 @@ export type FlashCardData = {
   correctAnswer: string;
   related_topics: string[];
   difficulty: string;
+  related_links: string[];
   
 };
 

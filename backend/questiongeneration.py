@@ -28,16 +28,16 @@ def generate_questions(text, number_of_questions):
     try:
         # Creating the prompt
         prompt = f'''
-Your task is to generate exactly 24 multiple-choice questions based on the provided text. Follow these instructions precisely:
+Your task is to generate exactly 12 multiple-choice questions based on the provided text. Follow these instructions precisely:
 
-1. Create 8 easy, 8 medium, and 8 hard questions.
+1. Create 4 easy, 4 medium, and 4 hard questions.
 2. Format the output as a single, valid JSON array
-4. Do not stop generation until all 24 questions are complete.
+4. Do not stop generation until all 12 questions are complete.
 5. Ensure the JSON is properly formatted and closed.
 
 Do not include any text before or after the JSON array.
 
-Example structure (repeat this 20 times):
+Example structure (repeat this 12 times):
       {{
         "id":1,
         "difficulty": "Easy",
