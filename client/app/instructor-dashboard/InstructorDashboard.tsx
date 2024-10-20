@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip as ChartTooltip, Legend as ChartLegend } from 'chart.js';
 import UserDashboard from './UserDashboard';
+import { useAuth } from '@/context/AuthContext';
+import { UserCircle, LogOut } from 'lucide-react';
 import { UserIcon, ClockIcon, CheckCircleIcon, BookOpenIcon, BrainIcon, TrendingUpIcon } from 'lucide-react';
+import { signOut } from 'firebase/auth';
+import { auth } from '@/lib/firebase';
+import { Button } from "@/components/ui/button";
 
 const StatItem = ({ icon: Icon, label, value, color }:any) => (
   <div className="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg">
@@ -70,6 +76,25 @@ type Props = {
 const InstructorDashboard: React.FC<Props> = ({ users }) => {
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
   const [hoveredUser, setHoveredUser] = useState<string | null>(null);
+
+  const router = useRouter();
+  const { user } = useAuth();
+
+  useEffect(() => {
+    if (!user) {
+      router.push('/login');
+    }
+  }, [user, router]);
+
+  if (!user) {
+    return null; // or a loading spinner
+  }
+
+  const handleSignOut = async () => {
+    await signOut(auth);
+    router.push('/login');
+  };
+
 
   const userArray = Object.entries(users).map(([email, data]) => ({
     email,
@@ -157,8 +182,28 @@ const InstructorDashboard: React.FC<Props> = ({ users }) => {
   const statData = compareData;
 
   return (
-    <div className="p-6 bg-black min-h-screen">
-      <h1 className="text-3xl font-bold mb-6">Instructor Dashboard</h1>
+    <div className="min-h-screen bg-black">
+    <header className="bg-black shadow py-4 mb-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+        <h1 className="text-3xl font-bold text-white">Instructor Dashboard</h1>
+        <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2">
+            <UserCircle className="h-6 w-6 text-gray-500" />
+            <span className="text-sm font-medium text-white">{user.email}</span>
+          </div>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            onClick={handleSignOut}
+            className="flex items-center space-x-2"
+          >
+            <LogOut className="h-4 w-4" />
+            <span>Sign Out</span>
+          </Button>
+        </div>
+      </div>
+    </header>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {userArray.map((user, index) => (
           <motion.div
@@ -170,7 +215,7 @@ const InstructorDashboard: React.FC<Props> = ({ users }) => {
             whileTap={{ scale: 0.95 }}
           >
             <Card 
-              className="cursor-pointer hover:shadow-lg transition-shadow duration-300 overflow-hidden"
+              className="cursor-pointer hover:shadow-lg transition-shadow text-white duration-300 overflow-hidden"
               onClick={() => setSelectedUser(user.email)}
               onMouseEnter={() => setHoveredUser(user.email)}
               onMouseLeave={() => setHoveredUser(null)}
@@ -179,8 +224,8 @@ const InstructorDashboard: React.FC<Props> = ({ users }) => {
                 <CardTitle>{user.username}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">Email: {user.email}</p>
-                <p className="text-sm text-gray-600">Joined: {new Date(user.createdAt).toLocaleDateString()}</p>
+                <p className="text-sm text-gray-100">Email: {user.email}</p>
+                <p className="text-sm text-gray-100">Joined: {new Date(user.createdAt).toLocaleDateString()}</p>
                 <AnimatePresence>
                   {hoveredUser === user.email && (
                     <motion.div

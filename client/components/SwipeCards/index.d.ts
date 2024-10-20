@@ -9,6 +9,9 @@ export type FlashCardData = {
   explanation: string;
   correctAnswer: string;
   related_topics: string[];
+  difficulty: string;
+  related_links: string[];
+  
 };
 
 export type CardProps = {
@@ -16,6 +19,7 @@ export type CardProps = {
   active: boolean;
   websocket: WebSocket | null;
   removeCard: (id: number, action: 'right' | 'left') => void;
+  embedLink: string | null;
 };
 
 export type SwipeButtonProps = {
