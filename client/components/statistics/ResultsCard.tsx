@@ -2,9 +2,15 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Award, Trophy } from "lucide-react";
 
-type Props = { accuracy: number };
+type Props = {
+  totalQuestions: number;
+  correctAnswers: number;
+  wrongAnswers: number;
+};
 
-const ResultsCard = ({ accuracy }: Props) => {
+const ResultsCard: React.FC<Props> = ({ totalQuestions, correctAnswers, wrongAnswers }) => {
+  const accuracy = (correctAnswers / totalQuestions) * 100;
+
   return (
     <Card className="md:col-span-7">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-7">
@@ -17,7 +23,7 @@ const ResultsCard = ({ accuracy }: Props) => {
             <Trophy className="mr-4" stroke="gold" size={50} />
             <div className="flex flex-col text-2xl font-semibold text-yellow-400">
               <span>Impressive!</span>
-              <span className="text-sm text-center text-black opacity-50">{"> 75% accuracy"}</span>
+              <span className="text-sm text-center text-black opacity-50">{`> 75% accuracy`}</span>
             </div>
           </>
         ) : accuracy > 25 ? (
@@ -25,7 +31,7 @@ const ResultsCard = ({ accuracy }: Props) => {
             <Trophy className="mr-4" stroke="silver" size={50} />
             <div className="flex flex-col text-2xl font-semibold text-stone-400">
               <span>Good job!</span>
-              <span className="text-sm text-center text-black opacity-50">{"> 25% accuracy"}</span>
+              <span className="text-sm text-center text-black opacity-50">{`> 25% accuracy`}</span>
             </div>
           </>
         ) : (
@@ -33,10 +39,16 @@ const ResultsCard = ({ accuracy }: Props) => {
             <Trophy className="mr-4" stroke="brown" size={50} />
             <div className="flex flex-col text-2xl font-semibold text-yellow-800">
               <span>Nice try!</span>
-              <span className="text-sm text-center text-black opacity-50">{"< 25% accuracy"}</span>
+              <span className="text-sm text-center text-black opacity-50">{`< 25% accuracy`}</span>
             </div>
           </>
         )}
+        <div className="mt-4 text-center">
+          <p>Total Questions: {totalQuestions}</p>
+          <p>Correct Answers: {correctAnswers}</p>
+          <p>Wrong Answers: {wrongAnswers}</p>
+          <p>Accuracy: {accuracy.toFixed(2)}%</p>
+        </div>
       </CardContent>
     </Card>
   );

@@ -3,8 +3,10 @@ import FlashCard from '@/components/SwipeCards/FlashCard';
 import { FlashCardData } from '@/components/SwipeCards/index';
 import { AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { set } from 'react-hook-form';
-
+import { db } from '@/lib/firebase';
+import { setDoc, doc } from 'firebase/firestore';
+import { useAuth } from '@/context/AuthContext';
+import Statistics from '../statistic/page';
 
 export default function FlashcardPage() {
   const [cards, setCards] = useState<FlashCardData[]>([]);
@@ -12,6 +14,10 @@ export default function FlashcardPage() {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
   const [socket, setSocket] = useState<WebSocket | null>(null);
+  const [reportData, setReportData] = useState<any>(null);
+  
+
+  const { userEmail } = useAuth();
 
   useEffect(() => {
 
@@ -40,6 +46,8 @@ export default function FlashcardPage() {
           break;
         case 'report':
           console.log('Received final report:', data.data);
+          setReportData(data.data);
+          saveReportToFirebase(data.data);
           // TODO: Display the final report
           break;
         default:
@@ -61,6 +69,23 @@ export default function FlashcardPage() {
     };
   }, []);
 
+  const saveReportToFirebase = async (reportData: any) => {
+   
+    const testId = `test${Date.now()}`; // Generate a unique test ID
+
+    try {
+      if(userEmail) {
+      await setDoc(doc(db, 'Users', userEmail, 'Tests', testId), {
+        type: 'report',
+        data: reportData
+      });
+      console.log('Report saved to Firebase');
+    }
+    } catch (error) {
+      console.error('Error saving report to Firebase:', error);
+    }
+  };
+
   const activeIndex = cards.length - 1;
   const removeCard = (id: number, action: 'right' | 'left') => {
     console.log('CALLED WHEN RIGHT');
@@ -71,6 +96,10 @@ export default function FlashcardPage() {
       setIncorrectAnswers((prev) => prev + 1);
     }
   };
+
+  if (reportData) {
+    return <Statistics data={reportData} />;
+  }
 
   return (
     <div className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x">
