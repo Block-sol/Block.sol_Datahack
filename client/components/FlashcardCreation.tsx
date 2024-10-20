@@ -25,6 +25,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const flashcardCreationSchema = z.object({
   topic: z.string().min(1, "Topic is required"),
@@ -44,6 +45,7 @@ type FlashcardCreationInput = z.infer<typeof flashcardCreationSchema>;
 const FlashcardCreation = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { toast } = useToast();
+  const router = useRouter();
   
   const form = useForm<FlashcardCreationInput>({
     resolver: zodResolver(flashcardCreationSchema),
@@ -57,6 +59,45 @@ const FlashcardCreation = () => {
 
   const sourceType = form.watch("sourceType");
 
+  const onSubmit = async (data: FlashcardCreationInput) => {
+    setIsLoading(true);
+    try {
+      const formData = new FormData();
+      if (data.file) {
+        formData.append('file', data.file);
+      }
+      
+      const response = await fetch('http://127.0.0.1:5000/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to upload file and generate questions');
+      }
+
+      const result = await response.json();
+      toast({
+        title: "Success",
+        description: result.message,
+      });
+      if(result){
+        console.log(result);
+        router.push('/quiz');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to create flashcards. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -69,7 +110,7 @@ const FlashcardCreation = () => {
         Generate personalized flashcards
       </p>
       <Form {...form}>
-        <form className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}
             name="topic"
@@ -181,16 +222,16 @@ const FlashcardCreation = () => {
             />
           )}
 
-          <Button className="w-full" disabled={isLoading}>
-            {isLoading ? (
-              <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                Generating...
-              </>
-            ) : (
-              "Create Flashcards"
-            )}
-          </Button>
+            <Button type="submit" className="w-full" disabled={isLoading}>
+                        {isLoading ? (
+                        <>
+                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            Generating...
+                        </>
+                        ) : (
+                        "Create Flashcards"
+                        )}
+                    </Button>
         </form>
       </Form>
     </motion.div>
