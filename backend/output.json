@@ -2,530 +2,235 @@
     {
         "id": 1,
         "difficulty": "Easy",
-        "question": "What is Machine Learning?",
+        "question": "What does NLP stand for?",
         "options": {
-            "A": "A technology that enables machines to simulate human behavior",
-            "B": "A field of study that allows computers to learn from data",
-            "C": "A type of computer programming",
-            "D": "A hardware component of computing devices"
+            "A": "Natural Language Processing",
+            "B": "Natural Language Programming",
+            "C": "Nuclear Language Processing",
+            "D": "Neural Language Processing"
         },
         "related_topics": [
-            "machine learning",
-            "AI",
-            "computing"
+            "Natural Language Processing",
+            "Machine Learning"
         ],
         "related_links": [
-            "youtube_link1",
-            "research_paper_link1",
-            "youtube_link2"
+            "https://en.wikipedia.org",
+            "https://www.coursera.org/learn/machine-learning"
         ],
-        "correctAnswer": "B",
-        "explanation": "Machine Learning allows computers to automatically learn from data."
+        "correctAnswer": "A",
+        "explanation": "NLP stands for Natural Language Processing."
     },
     {
         "id": 2,
         "difficulty": "Easy",
-        "question": "Which algorithm is commonly used for predictive analysis?",
+        "question": "What is a lemma in linguistics?",
         "options": {
-            "A": "K-Means Clustering",
-            "B": "Logistic Regression",
-            "C": "Linear Regression",
-            "D": "Na\u00efve Bayes"
+            "A": "The smallest unit of meaning",
+            "B": "The dictionary form of a word",
+            "C": "The plural form of a word",
+            "D": "The past tense of a verb"
         },
         "related_topics": [
-            "linear regression",
-            "predictive analysis"
+            "Linguistics",
+            "Morphology"
         ],
         "related_links": [
-            "youtube_link3",
-            "research_paper_link2",
-            "youtube_link4"
+            "https://en.wikipedia.org/wiki/Lemma"
         ],
-        "correctAnswer": "C",
-        "explanation": "Linear Regression is used for predictive analysis."
+        "correctAnswer": "B",
+        "explanation": "A lemma is the dictionary form of a word."
     },
     {
         "id": 3,
         "difficulty": "Easy",
-        "question": "What does the experience in machine learning refer to?",
+        "question": "Who is associated with the development of IBM's Watson?",
         "options": {
-            "A": "The ability of machines to perform tasks",
-            "B": "Learning from historical data",
-            "C": "The speed of the algorithm",
-            "D": "The complexity of the model"
+            "A": "Henning Wachsmuth",
+            "B": "Andrew Ng",
+            "C": "IBM developers",
+            "D": "Steve Jobs"
         },
         "related_topics": [
-            "machine learning",
-            "experience"
+            "Natural Language Processing",
+            "AI"
         ],
         "related_links": [
-            "youtube_link1",
-            "research_paper_link3",
-            "youtube_link5"
+            "https://www.ibm.com/watson"
         ],
-        "correctAnswer": "B",
-        "explanation": "Experience in machine learning refers to learning from historical data."
+        "correctAnswer": "C",
+        "explanation": "IBM's Watson was developed by a team of IBM developers."
     },
     {
         "id": 4,
         "difficulty": "Easy",
-        "question": "What is K-Nearest Neighbor (KNN)?",
+        "question": "What does POS stand for in NLP?",
         "options": {
-            "A": "A type of supervised learning algorithm",
-            "B": "A clustering algorithm",
-            "C": "A regression method",
-            "D": "A reinforcement learning technique"
+            "A": "Part-Of-Speech",
+            "B": "Position",
+            "C": "Point Of Sale",
+            "D": "Process of Sciences"
         },
         "related_topics": [
-            "KNN",
-            "supervised learning"
+            "NLP",
+            "Linguistics"
         ],
         "related_links": [
-            "youtube_link6",
-            "research_paper_link4",
-            "youtube_link7"
+            "https://en.wikipedia.org/wiki/Part_of_speech"
         ],
         "correctAnswer": "A",
-        "explanation": "KNN is a type of supervised learning algorithm."
+        "explanation": "POS stands for Part-Of-Speech."
     },
     {
         "id": 5,
-        "difficulty": "Easy",
-        "question": "What type of problems is Logistic Regression used to solve?",
+        "difficulty": "Medium",
+        "question": "What are the main stages in computational argumentation according to the text?",
         "options": {
-            "A": "Clustering problems",
-            "B": "Classification problems",
-            "C": "Regression problems",
-            "D": "Optimization problems"
+            "A": "Mining arguments, assessing properties, generating arguments",
+            "B": "Collecting data, storing information, analyzing results",
+            "C": "Understanding language, generating speech, recognizing patterns",
+            "D": "Data mining, machine learning, human feedback"
         },
         "related_topics": [
-            "logistic regression",
-            "classification"
+            "Computational Argumentation"
         ],
         "related_links": [
-            "youtube_link8",
-            "research_paper_link5",
-            "youtube_link9"
+            "https://en.wikipedia.org/wiki/Argumentation"
         ],
-        "correctAnswer": "B",
-        "explanation": "Logistic Regression is primarily used for classification problems."
+        "correctAnswer": "A",
+        "explanation": "The main stages are mining arguments, assessing properties, and generating arguments."
     },
     {
         "id": 6,
-        "difficulty": "Easy",
-        "question": "What does a Decision Tree represent?",
+        "difficulty": "Medium",
+        "question": "Which technique is often used to make predictions in supervised learning?",
         "options": {
-            "A": "A linear relationship between variables",
-            "B": "A binary classification model",
-            "C": "A tree-structured classifier",
-            "D": "A probability distribution"
+            "A": "Text analysis",
+            "B": "Data mining",
+            "C": "Regression",
+            "D": "Clustering"
         },
         "related_topics": [
-            "decision tree",
-            "classification"
+            "Supervised Learning",
+            "Machine Learning"
         ],
         "related_links": [
-            "youtube_link10",
-            "research_paper_link6",
-            "youtube_link11"
+            "https://towardsdatascience.com/supervised-learning-explained-8686f7d5b61e"
         ],
         "correctAnswer": "C",
-        "explanation": "A Decision Tree is a tree-structured classifier."
+        "explanation": "Regression is used to make predictions in supervised learning."
     },
     {
         "id": 7,
-        "difficulty": "Easy",
-        "question": "Which of the following is NOT an application of Machine Learning?",
+        "difficulty": "Medium",
+        "question": "What characterizes the field of computational linguistics?",
         "options": {
-            "A": "Spam filtration",
-            "B": "Stock market prediction",
-            "C": "Robotic vacuum cleaning",
-            "D": "Cooking recipes"
+            "A": "Study of languages",
+            "B": "Intersection of computer science and linguistics",
+            "C": "Only focuses on syntax",
+            "D": "Analysis of speech sounds"
         },
         "related_topics": [
-            "machine learning",
-            "applications"
+            "Computational Linguistics"
         ],
         "related_links": [
-            "youtube_link12",
-            "research_paper_link7",
-            "youtube_link13"
+            "http://www.aclweb.org"
         ],
-        "correctAnswer": "D",
-        "explanation": "Cooking recipes do not relate directly to Machine Learning."
+        "correctAnswer": "B",
+        "explanation": "Computational linguistics is the intersection of computer science and linguistics."
     },
     {
         "id": 8,
-        "difficulty": "Easy",
-        "question": "Which algorithm is preferred to solve complex problems?",
+        "difficulty": "Medium",
+        "question": "In which year did IBM\u2019s Watson win Jeopardy?",
         "options": {
-            "A": "Na\u00efve Bayes",
-            "B": "Random Forest",
-            "C": "K-Nearest Neighbor",
-            "D": "Support Vector Machines"
+            "A": "2010",
+            "B": "2011",
+            "C": "2012",
+            "D": "2013"
         },
         "related_topics": [
-            "random forest",
-            "complex problems"
+            "Artificial Intelligence"
         ],
         "related_links": [
-            "youtube_link14",
-            "research_paper_link8",
-            "youtube_link15"
+            "https://www.youtube.com/watch?v=P18EdAKuC1U"
         ],
         "correctAnswer": "B",
-        "explanation": "Random Forest is used to solve complex problems."
+        "explanation": "IBM's Watson won Jeopardy in February 2011."
     },
     {
         "id": 9,
-        "difficulty": "Medium",
-        "question": "Which technique is used to create a decision boundary in Support Vector Machines?",
+        "difficulty": "Hard",
+        "question": "What is the difference between precision and recall in NLP evaluation?",
         "options": {
-            "A": "Hyperplane",
-            "B": "Decision Node",
-            "C": "Regression Line",
-            "D": "Cost Function"
+            "A": "Precision measures correct positive predictions, recall measures all actual positives",
+            "B": "Precision measures all predictions, recall measures correct predictions",
+            "C": "They are synonyms and can be used interchangeably",
+            "D": "Precision only applies to classification, recall applies to regression"
         },
         "related_topics": [
-            "support vector machines",
-            "decision boundary"
+            "NLP Evaluation Metrics"
         ],
         "related_links": [
-            "youtube_link16",
-            "research_paper_link9",
-            "youtube_link17"
+            "https://en.wikipedia.org/wiki/Precision_and_recall"
         ],
         "correctAnswer": "A",
-        "explanation": "Support Vector Machines create a decision boundary called a hyperplane."
+        "explanation": "Precision measures correct positive predictions, recall measures all actual positives."
     },
     {
         "id": 10,
-        "difficulty": "Medium",
-        "question": "What is the main advantage of the Random Forest algorithm?",
+        "difficulty": "Hard",
+        "question": "How is overfitting characterized in machine learning?",
         "options": {
-            "A": "It's simpler than others",
-            "B": "It improves prediction accuracy",
-            "C": "It requires less data",
-            "D": "It's faster than all algorithms"
+            "A": "Model performs well on training data but poorly on unseen data",
+            "B": "Model is simple and ignores data",
+            "C": "Model performs well on both training and test datasets",
+            "D": "Model is based on unsupervised data"
         },
         "related_topics": [
-            "random forest",
-            "advantages"
+            "Machine Learning"
         ],
         "related_links": [
-            "youtube_link18",
-            "research_paper_link10",
-            "youtube_link19"
+            "https://towardsdatascience.com/overfitting-in-machine-learning-1393e10f0ef3"
         ],
-        "correctAnswer": "B",
-        "explanation": "Random Forest improves prediction accuracy through ensemble learning."
+        "correctAnswer": "A",
+        "explanation": "Overfitting occurs when the model performs well on training data but poorly on unseen data."
     },
     {
         "id": 11,
-        "difficulty": "Medium",
-        "question": "What defines the 'K' in K-Means Clustering?",
+        "difficulty": "Hard",
+        "question": "What is described as a coreference in NLP?",
         "options": {
-            "A": "Number of neighbors",
-            "B": "Number of clusters",
-            "C": "Number of features",
-            "D": "Number of iterations"
+            "A": "Different words having the same meaning",
+            "B": "Two or more expressions that refer to the same thing",
+            "C": "Words that share the same root",
+            "D": "Expressions that contradict each other"
         },
         "related_topics": [
-            "k-means clustering",
-            "clustering"
+            "Coreference Resolution"
         ],
         "related_links": [
-            "youtube_link20",
-            "research_paper_link11",
-            "youtube_link21"
+            "https://en.wikipedia.org/wiki/Coreference"
         ],
         "correctAnswer": "B",
-        "explanation": "K represents the predefined number of clusters in K-Means Clustering."
+        "explanation": "Coreference refers to two or more expressions that refer to the same thing."
     },
     {
         "id": 12,
-        "difficulty": "Medium",
-        "question": "What does Na\u00efve Bayes rely on for predictions?",
-        "options": {
-            "A": "Linear relationships",
-            "B": "The Bayes Theorem",
-            "C": "Distance calculation",
-            "D": "Probabilistic models"
-        },
-        "related_topics": [
-            "naive bayes",
-            "probabilities"
-        ],
-        "related_links": [
-            "youtube_link22",
-            "research_paper_link12",
-            "youtube_link23"
-        ],
-        "correctAnswer": "B",
-        "explanation": "Na\u00efve Bayes relies on the Bayes Theorem for predictions."
-    },
-    {
-        "id": 13,
-        "difficulty": "Medium",
-        "question": "Which of the following is true about Logistic Regression?",
-        "options": {
-            "A": "It's used for regression problems only",
-            "B": "It produces a linear output",
-            "C": "It can give values between 0 and 1",
-            "D": "It's an unsupervised learning technique"
-        },
-        "related_topics": [
-            "logistic regression",
-            "outputs"
-        ],
-        "related_links": [
-            "youtube_link24",
-            "research_paper_link13",
-            "youtube_link25"
-        ],
-        "correctAnswer": "C",
-        "explanation": "Logistic Regression gives a probabilistic output between 0 and 1."
-    },
-    {
-        "id": 14,
-        "difficulty": "Medium",
-        "question": "What type of algorithm is K-Nearest Neighbor (KNN) also known as?",
-        "options": {
-            "A": "Eager Learner",
-            "B": "Lazy Learner",
-            "C": "Fast Learner",
-            "D": "Active Learner"
-        },
-        "related_topics": [
-            "knn",
-            "learning types"
-        ],
-        "related_links": [
-            "youtube_link26",
-            "research_paper_link14",
-            "youtube_link27"
-        ],
-        "correctAnswer": "B",
-        "explanation": "KNN is considered a Lazy Learner because it stores data instead of learning immediately."
-    },
-    {
-        "id": 15,
-        "difficulty": "Medium",
-        "question": "In which applications is the Na\u00efve Bayes algorithm commonly used?",
-        "options": {
-            "A": "Image classification",
-            "B": "Spam filtration",
-            "C": "Linear regression",
-            "D": "Clustering images"
-        },
-        "related_topics": [
-            "naive bayes",
-            "applications"
-        ],
-        "related_links": [
-            "youtube_link28",
-            "research_paper_link15",
-            "youtube_link29"
-        ],
-        "correctAnswer": "B",
-        "explanation": "Na\u00efve Bayes is commonly used in spam filtration."
-    },
-    {
-        "id": 16,
         "difficulty": "Hard",
-        "question": "What is the primary goal of Support Vector Machines?",
+        "question": "Which of the following is a common challenge in natural language processing?",
         "options": {
-            "A": "To create clusters from unlabeled data",
-            "B": "To minimize classification error",
-            "C": "To create the optimal hyperplane",
-            "D": "To find linear relationships"
+            "A": "Semantic ambiguity",
+            "B": "Limited data size",
+            "C": "High computational cost",
+            "D": "All of the above"
         },
         "related_topics": [
-            "support vector machines",
-            "goals"
+            "Challenges in NLP"
         ],
         "related_links": [
-            "youtube_link30",
-            "research_paper_link16",
-            "youtube_link31"
+            "https://towardsdatascience.com/challenges-of-natural-language-processing-271ab8491d35"
         ],
-        "correctAnswer": "C",
-        "explanation": "The primary goal of SVM is to create the optimal hyperplane."
-    },
-    {
-        "id": 17,
-        "difficulty": "Hard",
-        "question": "Which algorithm would you prefer for a situation where interpretability of the model is crucial?",
-        "options": {
-            "A": "Random Forest",
-            "B": "Na\u00efve Bayes",
-            "C": "Decision Tree",
-            "D": "KNN"
-        },
-        "related_topics": [
-            "model interpretability",
-            "decision tree"
-        ],
-        "related_links": [
-            "youtube_link32",
-            "research_paper_link17",
-            "youtube_link33"
-        ],
-        "correctAnswer": "C",
-        "explanation": "Decision Trees are preferred for their interpretability."
-    },
-    {
-        "id": 18,
-        "difficulty": "Hard",
-        "question": "What is the disadvantage of a linear model like Logistic Regression in certain datasets?",
-        "options": {
-            "A": "It can overfit",
-            "B": "It assumes a linear relationship",
-            "C": "It requires large datasets",
-            "D": "It cannot be used for classification"
-        },
-        "related_topics": [
-            "logistic regression",
-            "disadvantages"
-        ],
-        "related_links": [
-            "youtube_link34",
-            "research_paper_link18",
-            "youtube_link35"
-        ],
-        "correctAnswer": "B",
-        "explanation": "Logistic Regression assumes a linear relationship, which can be limiting."
-    },
-    {
-        "id": 19,
-        "difficulty": "Hard",
-        "question": "In Random Forest, how do various decision trees contribute to the final prediction?",
-        "options": {
-            "A": "Choosing the most common prediction",
-            "B": "Using the average of their predictions",
-            "C": "Taking the maximum prediction value",
-            "D": "Each tree contributes equally"
-        },
-        "related_topics": [
-            "random forest",
-            "ensemble learning"
-        ],
-        "related_links": [
-            "youtube_link36",
-            "research_paper_link19",
-            "youtube_link37"
-        ],
-        "correctAnswer": "A",
-        "explanation": "Random Forest takes the most common prediction from its decision trees."
-    },
-    {
-        "id": 20,
-        "difficulty": "Hard",
-        "question": "Why is K-Means Clustering considered sensitive to initial centroids?",
-        "options": {
-            "A": "It can create different clusters in each run",
-            "B": "It optimally assigns all points",
-            "C": "It requires predefined clusters only",
-            "D": "It works on high-dimensional data"
-        },
-        "related_topics": [
-            "k-means clustering",
-            "initial conditions"
-        ],
-        "related_links": [
-            "youtube_link38",
-            "research_paper_link20",
-            "youtube_link39"
-        ],
-        "correctAnswer": "A",
-        "explanation": "K-Means Clustering can create different clusters based on initial centroid placement."
-    },
-    {
-        "id": 21,
-        "difficulty": "Hard",
-        "question": "What makes Na\u00efve Bayes effective for text classification tasks?",
-        "options": {
-            "A": "Fast processing and handling high dimensions",
-            "B": "It learns from labeled data",
-            "C": "Combines probabilities for each class",
-            "D": "It does not require training data"
-        },
-        "related_topics": [
-            "naive bayes",
-            "text classification"
-        ],
-        "related_links": [
-            "youtube_link40",
-            "research_paper_link21",
-            "youtube_link41"
-        ],
-        "correctAnswer": "A",
-        "explanation": "Na\u00efve Bayes effectively handles high-dimensionality and processes quickly."
-    },
-    {
-        "id": 22,
-        "difficulty": "Hard",
-        "question": "What kind of problems can Support Vector Machines solve?",
-        "options": {
-            "A": "Only classification problems",
-            "B": "Only regression problems",
-            "C": "Classification and regression problems",
-            "D": "Clustering problems only"
-        },
-        "related_topics": [
-            "support vector machines",
-            "problem types"
-        ],
-        "related_links": [
-            "youtube_link42",
-            "research_paper_link22",
-            "youtube_link43"
-        ],
-        "correctAnswer": "C",
-        "explanation": "Support Vector Machines can solve both classification and regression problems."
-    },
-    {
-        "id": 23,
-        "difficulty": "Hard",
-        "question": "What does ensemble learning help improve in Random Forest?",
-        "options": {
-            "A": "Complexity of the model",
-            "B": "Training time",
-            "C": "Prediction accuracy",
-            "D": "Data preprocessing"
-        },
-        "related_topics": [
-            "ensemble learning",
-            "random forest"
-        ],
-        "related_links": [
-            "youtube_link44",
-            "research_paper_link23",
-            "youtube_link45"
-        ],
-        "correctAnswer": "C",
-        "explanation": "Ensemble learning in Random Forest improves prediction accuracy."
-    },
-    {
-        "id": 24,
-        "difficulty": "Hard",
-        "question": "In the context of Machine Learning, what does the term 'overfitting' refer to?",
-        "options": {
-            "A": "When a model performs poorly on training data",
-            "B": "When a model performs well on test data",
-            "C": "When a model learns noise in the training data",
-            "D": "When a model learns too little from the data"
-        },
-        "related_topics": [
-            "overfitting",
-            "machine learning"
-        ],
-        "related_links": [
-            "youtube_link46",
-            "research_paper_link24",
-            "youtube_link47"
-        ],
-        "correctAnswer": "C",
-        "explanation": "Overfitting occurs when a model learns noise from training data."
+        "correctAnswer": "D",
+        "explanation": "All mentioned options are common challenges in natural language processing."
     }
 ]

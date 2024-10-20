@@ -4,18 +4,28 @@ from datetime import datetime, timedelta
 
 class AdaptiveFlashcardSystem:
     def __init__(self, file_path):
-        self.questions = self.load_questions(file_path)
+        # Store the file path in an instance variable
+        self.questions_file = file_path
+        self.questions = self.load_questions()  # No need to pass file_path again
         self.user_performance = {}
         self.question_history = []
         self.current_difficulty = "Easy"
         self.spaced_repetition_queue = []
         self.wrong_answers = []  # List to track wrong answers
 
-    def load_questions(self, file_path):
-        # Updated to load new JSON format with 'id'
-        with open(file_path, 'r') as file:
-            data = json.load(file)
-        return data  # No need for ['questions'], just load the entire list of questions
+    def load_questions(self):
+        """Load the latest questions from the output.json file."""
+        try:
+            # Always open the file to ensure you are loading the latest version
+            with open(self.questions_file, 'r') as file:
+                data = json.load(file)
+                return data  # Assumes your JSON file has a 'questions' key
+        except FileNotFoundError:
+            print(f"Error: {self.questions_file} not found.")
+            return []
+        except json.JSONDecodeError as e:
+            print(f"Error decoding JSON: {e}")
+            return [] # No need for ['questions'], just load the entire list of questions
 
     def select_question(self):
         current_time = datetime.now()

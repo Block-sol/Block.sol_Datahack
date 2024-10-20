@@ -80,7 +80,7 @@ const FlashCard = ({ data, active, removeCard, websocket,embedLink }: CardProps)
         <motion.div
           drag={!flipped ? "x" : false}
           dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-          className="card absolute z-30 w-[400px] h-[600px] self-center perspective"
+          className="card absolute z-30 w-[600px] h-[700px] self-center perspective"
           onDragEnd={dragEnd}
           initial={{ scale: 0.95, opacity: 0.5 }}
           animate={{ scale: 1.05, opacity: 1 }}
@@ -178,6 +178,27 @@ const FlashCard = ({ data, active, removeCard, websocket,embedLink }: CardProps)
                      ></iframe>
                    </div>
                  )}
+
+                      {data.related_links && data.related_links.length > 0 && (
+                        <div className="mt-4 mb-4">
+                          <h3 className="text-lg text-black font-semibold mb-2">Related Links:</h3>
+                          <ul className="list-disc pl-5">
+                            {data.related_links.map((link, index) => (
+                              <li key={index} className="mb-1">
+                                <a
+                                  href={link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-600 hover:text-blue-800 underline"
+                                >
+                                  {link}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
            
                              <div className="mt-4 flex flex-wrap gap-2">
                     {data.related_topics.map((item, idx) => (
