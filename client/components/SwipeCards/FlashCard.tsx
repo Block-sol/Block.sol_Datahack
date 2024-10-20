@@ -9,7 +9,7 @@ import {
 import { useAuth } from '@/context/AuthContext';
 import { useState, useEffect } from 'react';
 
-const FlashCard = ({ data, active, removeCard, websocket }: CardProps) => {
+const FlashCard = ({ data, active, removeCard, websocket,embedLink }: CardProps) => {
   const [exitX, setExitX] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -141,11 +141,23 @@ const FlashCard = ({ data, active, removeCard, websocket }: CardProps) => {
             >
               <div className="h-full w-full overflow-hidden rounded-2xl bg-white shadow-lg">
                 <div className="flex h-full flex-col p-6">
-                  <div className="mb-4">
+                  <div className="mb-4 flex justify-between">
                     <div className={`inline-block px-4 py-2 rounded-full ${
                       isCorrect ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
                     }`}>
                       {isCorrect ? 'Correct!' : 'Incorrect'}
+                    </div>
+                    <div className={`
+                      inline-block px-4 py-2 rounded-full
+                      ${data.difficulty.toLowerCase() === 'easy' 
+                        ? 'bg-green-100 text-green-800' 
+                        : data.difficulty.toLowerCase() === 'medium'
+                        ? 'bg-orange-100 text-orange-800'
+                        : data.difficulty.toLowerCase() === 'hard'
+                        ? 'bg-red-100 text-red-800'
+                        : 'bg-gray-100 text-gray-800'}
+                    `}>
+                      {data.difficulty}
                     </div>
                   </div>
 
@@ -153,8 +165,21 @@ const FlashCard = ({ data, active, removeCard, websocket }: CardProps) => {
                     <h3 className="mb-2 text-xl font-semibold text-gray-800">Explanation:</h3>
                     <p className="text-gray-700">{data.explanation}</p>
                   </div>
-
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  {embedLink && (
+                   <div className="w-full h-56 mb-4">
+                     <iframe
+                       width="100%"
+                       height="100%"
+                       src={`${embedLink}`}
+                       title="YouTube video player"
+                       frameBorder="0"
+                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                       allowFullScreen
+                     ></iframe>
+                   </div>
+                 )}
+           
+                             <div className="mt-4 flex flex-wrap gap-2">
                     {data.related_topics.map((item, idx) => (
                       <span key={idx} className="rounded-full bg-teal-100 px-3 py-1 text-sm font-medium text-teal-800">
                         {item}

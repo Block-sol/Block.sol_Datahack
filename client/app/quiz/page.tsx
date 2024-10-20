@@ -14,6 +14,47 @@ export default function FlashcardPage() {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
   const [socket, setSocket] = useState<WebSocket | null>(null);
+  const [embedLink, setEmbedLink] = useState<string | null>(null);  // To store the YouTube embed link
+  const [error, setError] = useState<string | null>(null);
+
+  // A reusable fetch function to hit your Flask API and handle the response
+async function fetchYouTubeEmbedLink(
+  keywords: string[]                                // Array of keywords to send to the API      // Function to set the error message in the state
+) {
+  try {
+    
+    const response = await fetch('http://127.0.0.1:5000/get_embed_link', { // URL of your Flask API
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ "keywords" : keywords  }), // Send the keywords in the request body
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      // If the request was successful, set the embed link in state
+      setEmbedLink(data.embed_link);
+      setError(null); // Clear any previous error
+    } else {
+      // If the request failed, set the error message
+      setError(data.message || 'Something went wrong');
+      setEmbedLink(null); // Clear the embed link
+    }
+  } catch (error: any) {
+    // Handle network or other errors
+    console.error('Error fetching embed link:', error);
+    setError('Failed to fetch the embed link. Please try again.');
+    setEmbedLink(null);
+  }
+}
+
+
+
+
+
+
   const [reportData, setReportData] = useState<any>(null);
   
 
@@ -24,12 +65,12 @@ export default function FlashcardPage() {
     // WebSocket connection
     const socket = new WebSocket('ws://localhost:8765');
     setSocket(socket);
-
+    
     socket.onopen = () => {
       console.log('WebSocket connection established');
     };
 
-    socket.onmessage = (event) => {
+    socket.onmessage = async (event) => {
       const data = JSON.parse(event.data);
       console.log('Received WebSocket message:', data);
 
@@ -37,6 +78,7 @@ export default function FlashcardPage() {
       switch (data.type) {
         case 'question':
           console.log('Received question:', data.data);
+          await fetchYouTubeEmbedLink(data.data.related_topics);
           setCurrentQuestion(data.data);
           // TODO: Update UI with the new question
           break;
@@ -111,6 +153,7 @@ export default function FlashcardPage() {
               data={currentQuestion}
               active={true}
               removeCard={removeCard}
+              embedLink={embedLink}
             />
           )
          : (
