@@ -1,10 +1,15 @@
-"use client";
+
+// HistoryCard.tsx
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 import { History } from "lucide-react";
 
-const HistoryCard = () => {
+interface HistoryCardProps {
+  totalQuizzes: number;
+}
+
+const HistoryCard: React.FC<HistoryCardProps> = ({ totalQuizzes }) => {
   const router = useRouter();
   return (
     <Card
@@ -19,7 +24,7 @@ const HistoryCard = () => {
       </CardHeader>
       <CardContent>
         <p className="text-sm text-muted-foreground">
-          View past quiz attempts.
+          View past quiz attempts. You've completed {totalQuizzes} quizzes.
         </p>
       </CardContent>
     </Card>

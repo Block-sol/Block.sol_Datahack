@@ -8,3 +8,10 @@ export interface CardData {
     explanation: string;
   }
   
+  export interface QuizAttempt {
+    id: string;
+    topic: string;
+    gameType: 'mcq' | 'open_ended';
+    timeStarted: string;
+    timeEnded: string;
+  }
